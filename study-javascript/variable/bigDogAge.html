@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btn" onclick="calc()">강아지 나이 계산하기</button>
+    <div id="result" class="show"></div>
+
+    <script>
+        function calc() {
+            let name = prompt("이름입력티비");
+            let age = prompt("나이입력팁이");
+
+            let realAge = 16 * Math.log(age) + 31;
+
+            document.querySelector("#result").innerHTML = `${name} 사람 나이로 ${Math.round(realAge)} 살`;
+        }
+    </script>
+</body>
+</html>

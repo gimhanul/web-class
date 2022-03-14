@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="calc()">나이 계산하기</button>
+    <div id="result" class="show"></div>
+
+    <script>
+        function calc() {
+            const today = new Date();
+            let birthYear = prompt("몇년에태어낫티비?");
+            let age;
+
+            age = today.getFullYear() - birthYear + 1;
+            document.querySelector("#result").innerHTML = `${today.getFullYear()} 년 현재, ${birthYear}년생의 나이는 ${age} 세입니다.`;
+        }
+    </script>
+</body>
+</html>
