@@ -1,0 +1,32 @@
+body {
+    background-image: url("./blackjackTable.jpeg");
+    background-size: cover;
+    text-align: center;
+}
+
+
+h1 {
+    color: goldenrod;
+}
+
+#message-el {
+    font-style: italic;
+}
+
+p {
+    font-size: xx-large;
+    font-weight: bold;
+    color: white;
+}
+
+button {
+    color: #016f32;
+    width: 150px;
+    background: goldenrod;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    border: none;
+    border-radius: 2px;
+    margin: 5px;
+}
