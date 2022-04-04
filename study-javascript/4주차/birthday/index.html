@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let birthMonth = prompt('태어난 달은?');
+        let birthDayy = prompt('태어난 날은?');
+        let today = new Date();
+        let birthday = new Date(today.getFullYear(), birthMonth-1, birthDayy);
+        resetTime();
+        let diffDate;
+
+
+        console.log(today.getTime());
+        console.log(birthday.getTime());
+
+        if (today.getTime() < birthday.getTime()) {
+            diffDate = Math.ceil((today - birthday) / (1000 * 24 * 60 * 60)) * -1;
+            document.write(`<h2>${diffDate}일 남았습니다.`);
+        } else if (birthday.getTime() < today.getTime()) {
+            diffDate = Math.ceil((birthday - today) / (1000 * 24 * 60 * 60)) * -1;
+            document.write(`<h2>${diffDate}일 지났습니다.`);
+        } else {
+            document.write('<h2>생일축하용</h2>');
+        }
+
+        function resetTime() {
+            today.setHours(0);
+            today.setMinutes(0);
+            today.setSeconds(0);
+            today.setMilliseconds(0);
+            birthday.setHours(0);
+            birthday.setMinutes(0);
+            birthday.setSeconds(0);
+            birthday.setMilliseconds(0);
+        }
+    </script>
+</body>
+</html>
