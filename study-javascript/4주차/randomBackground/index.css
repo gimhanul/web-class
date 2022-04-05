@@ -1,0 +1,14 @@
+button, p {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+p {
+    display: inline-block;
+}
+
+#container {
+    margin-top: 30%;
+    text-align: center;
+}
