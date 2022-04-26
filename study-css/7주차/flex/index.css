@@ -1,0 +1,35 @@
+.container {
+    border: 5px solid #ffcc5c;
+    display: flex;
+    flex-direction: row;
+    /*
+    flex-direction
+    - row
+    - column
+    - row-reverse
+    - column-reverse
+     */
+    justify-content: space-evenly;
+    /*
+    justify-content
+    - flex-start
+    - flex-end
+    - space-around
+    - space-between
+    - space-evenly
+     */
+}
+
+.container > div {
+    flex: 1;
+}
+
+.container > .logout {
+    flex: 2;
+}
+
+.home {
+}
+
+.search {
+}

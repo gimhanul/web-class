@@ -1,0 +1,22 @@
+.container {
+    border: 5px solid #ffcc5c;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item1 {
+    order: 3;
+}
+
+.container > div {
+    width: 300px;
+}
+
+.item1, .item2, .item3 {
+    flex: 1 1 200px;
+    /*
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 2000px;
+     */
+}

@@ -1,0 +1,13 @@
+.container {
+    border: 5px solid #ffcc5c;
+    display: flex;
+    align-items: center;
+}
+
+.home {
+    align-self: flex-start;
+}
+
+.logout {
+    align-self: flex-end;
+}
