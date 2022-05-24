@@ -1,60 +1,99 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 header {
-  height: 65px;
-  background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  padding: 20px;
+    height: 65px;
+    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 20px;
 }
 
 .header--img {
-  height: 100%;
-  margin-right: 6px;
+    height: 100%;
+    margin-right: 6px;
 }
 
 .header--title {
-  font-size: 20px;
-  margin-right: auto;
+    font-size: 20px;
+    margin-right: auto;
 
 }
 
 .header--text {
-  font-size: 12px;
-  font-weight: 500;
+    font-size: 12px;
+    font-weight: 500;
 }
 
 .form {
-  display: grid;
-  grid-template: 40px 40px / 1fr 1fr;
-  gap: 17px;
+    display: grid;
+    grid-template: 40px 40px / 1fr 1fr;
+    gap: 17px;
 }
 
 .form--input {
-  border: 1px solid #D5D4D8;
-  box-sizing: border-box;
-  border-radius: 5px;
-  text-indent: 11px;
+    border: 1px solid #D5D4D8;
+    box-sizing: border-box;
+    border-radius: 5px;
+    text-indent: 11px;
 }
 
 .form--button {
-  grid-column: 1 / -1;
-  background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
-  border-radius: 5px;
-  color: white;
-  border: none;
-  cursor: pointer;
+    grid-column: 1 / -1;
+    background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
+    border-radius: 5px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.meme {
+    position: relative;
+}
+
+.meme--image {
+    max-width: 100%;
+    border-radius: 3px;
+}
+
+.meme--text {
+    position: absolute;
+    width: 80%;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 15px 0;
+    padding: 0 5px;
+    font-size: 2em;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 0 #000,
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    0 2px 0 #000,
+    2px 0 0 #000,
+    0 -2px 0 #000,
+    -2px 0 0 #000,
+    2px 2px 5px #000;
+}
+
+.bottom {
+    bottom: 0;
+}
+.top {
+    top: 0;
 }
