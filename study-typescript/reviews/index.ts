@@ -1,41 +1,39 @@
-import { showReviewTotal, populateUser } from "./utils.ts";
+import {populateUser, showDetails, showReviewTotal} from './utils';
+import {LoyaltyUser, Permissions} from "./enums";
+import { Price, Country } from "./types";
 
 const reviews: {
   name: string;
-  stars: number | number;
-  loyaltyUser: boolean;
+  stars: number;
+  loyaltyUser: LoyaltyUser;
   date: string;
+  description?: string; // ? - optional
 }[] = [
   {
     name: "Sheia",
     stars: 5,
-    loyaltyUser: true,
+    loyaltyUser: LoyaltyUser.GOLD_USER,
     date: "01-04-2021"
   },
   {
     name: "Andrzej",
     stars: 3,
-    loyaltyUser: false,
+    loyaltyUser: LoyaltyUser.BRONZE_USER,
     date: "28-03-2021"
   },
   {
     name: "Omar",
     stars: 4,
-    loyaltyUser: true,
-    date: "27-03-2021"
+    loyaltyUser: LoyaltyUser.SILVER_USER,
+    date: "27-03-2021",
+    description: "good!!!!!~~~"
   }
 ];
-
-const ADMIN = 'admin';
-const READ_ONLY = 'read-only';
-enum Permissions {
-  ADMIN, READ_ONLY
-}
 
 const you: {
   firstName: string;
   lastName: string;
-  permissions: Permissions;
+  permissions: Permissions.ADMIN;
   isReturning: boolean;
   age: number;
   stayedAt: string[];
@@ -48,7 +46,6 @@ const you: {
   stayedAt: ["Florida-home", "Oman-flat", "Tokyo-bungalow"]
 };
 
-type Price = 25 | 30 | 45;
 const properties: {
   image: string;
   title: string;
@@ -57,9 +54,9 @@ const properties: {
     firstLine: string;
     city: string;
     code: number;
-    country: string;
+    country: Country;
   };
-  contact: string;
+  contact: [number, string] | string;
   isAvailable: boolean;
 }[] = [
   {
@@ -72,13 +69,13 @@ const properties: {
       code: 45632,
       country: "Colombia"
     },
-    contact: "marrywinkle@gmail.com",
+    contact: [8210, "marrywinkle@gmail.com"],
     isAvailable: true
   },
   {
     image: "https://avatars.githubusercontent.com/u/101719968?s=200&v=4",
     title: "Polish Cottage",
-    price: 34,
+    price: 30,
     location: {
       firstLine: "nb23",
       city: "Gdansk",
@@ -91,7 +88,7 @@ const properties: {
   {
     image: "https://avatars.githubusercontent.com/sookyoungwoo",
     title: "London Flat",
-    price: 23,
+    price: 25,
     location: {
       firstLine: "flat15",
       city: "London",
@@ -106,7 +103,7 @@ const properties: {
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 populateUser(you.firstName, you.isReturning);
 
-const propertyContainer = document.querySelector(".properties");
+const propertyContainer = document.querySelector(".properties") as HTMLDivElement;
 
 for (let i = 0; i < properties.length; i++) {
   const card = document.createElement('div');
@@ -115,10 +112,11 @@ for (let i = 0; i < properties.length; i++) {
   const image = document.createElement('img');
   image.setAttribute('src', properties[i].image);
   card.appendChild(image);
+  showDetails(you.permissions, card, properties[i].price)
   propertyContainer.appendChild(card);
 }
 
-const footer = document.querySelector(".footer");
+const footer = document.querySelector(".footer") as HTMLDivElement;
 
 let currentLocation: [string, string, number] = ['London', '11:11', 17];
 footer?.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + ' ` '
