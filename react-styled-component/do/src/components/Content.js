@@ -16,7 +16,7 @@ const Title = styled.h1`
 `
 
 const SubTitle = styled(Title)`
-  font-size: 12px;
+  font-size: 14px;
   align-self: center;
 `
 
@@ -48,4 +48,3 @@ export default function Content() {
         </Section>
     )
 }
-
