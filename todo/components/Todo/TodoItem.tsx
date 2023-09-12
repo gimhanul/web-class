@@ -6,10 +6,10 @@ const TodoItem = ({ todo, toggleDone }: {
   toggleDone: () => void
 }) => {
   return (
-    <div className={styles.container}>
-      <input type={'checkbox'} checked={todo.done} onClick={toggleDone} />
+    <label onClick={toggleDone} className={styles.container}>
+      <input type={'checkbox'} checked={todo.done} onChange={() => {}}/>
       <p>{todo.text}</p>
-    </div>
+    </label>
   )
 }
 

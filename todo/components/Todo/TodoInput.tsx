@@ -1,7 +1,7 @@
 import styles from '@/styles/Home.module.css';
-import { useContext } from 'react';
-import { TodoContext } from '@/pages/_app';
 import { useForm } from 'react-hook-form';
+import { useRecoilState } from "recoil";
+import { todoListState } from '@/stores/TodoList'
 
 interface ITextInput {
   text: string
@@ -10,7 +10,7 @@ interface ITextInput {
 const TodoInput = () => {
 
   const { register, handleSubmit, reset } = useForm<ITextInput>();
-  const { todoList, setTodoList } = useContext(TodoContext);
+  const [todoList, setTodoList] = useRecoilState(todoListState);
 
   const addTodo = (data: ITextInput) => {
     setTodoList!([...todoList!, {

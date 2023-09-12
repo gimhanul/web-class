@@ -1,17 +1,20 @@
 import styles from '@/styles/Home.module.css';
 import TodoInput from '@/components/Todo/TodoInput';
 import TodoItem from '@/components/Todo/TodoItem';
-import { useContext } from 'react';
-import { TodoContext } from '@/pages/_app';
+import { useRecoilState } from "recoil";
+import { todoListState } from '@/stores/TodoList';
 
 const TodoList = () => {
 
-  const { todoList, setTodoList } = useContext(TodoContext);
+  const [todoList, setTodoList] = useRecoilState(todoListState);
 
   const toggleDone = (index: number) => {
-    const updatedTodoList = [...todoList!];
-    updatedTodoList[index].done = !updatedTodoList[index].done;
-    setTodoList!(updatedTodoList);
+    setTodoList(
+      [...todoList.slice(0, index), {
+        ...todoList[index],
+        done: !todoList[index].done
+      }, ...todoList.slice(index + 1)]
+    );
   }
 
   return (

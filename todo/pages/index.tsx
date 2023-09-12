@@ -1,17 +1,18 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Log } from '@/types/Log';
 import TodoList from '@/components/Todo/TodoList';
 import LogList from '@/components/Log/LogList';
-import { TodoContext } from '@/pages/_app';
+import { useRecoilState } from 'recoil';
+import { todoListState } from '@/stores/TodoList';
 
 export default function Home() {
   const [logList, setLogList] = useState<Log[]>([]);
 
   const initRef = useRef<boolean>(false);
 
-  const { todoList, setTodoList } = useContext(TodoContext);
+  const [todoList, setTodoList] = useRecoilState(todoListState);
   useEffect(() => {
     if (initRef.current) {
       setLogList([{
